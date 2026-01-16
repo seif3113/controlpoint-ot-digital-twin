@@ -1,0 +1,93 @@
+<div class="details-container">
+  <!-- Loading Spinner -->
+  <app-loading-overlay *ngIf="loading"></app-loading-overlay>
+
+  <!-- Back Button -->
+  <button mat-button color="primary" (click)="goBack()" class="back-button">
+    <mat-icon>arrow_back</mat-icon>
+    Back to Assets
+  </button>
+  <!-- Content -->
+  <div *ngIf="!loading && asset">
+    <!-- Asset Details Card -->
+    <mat-card class="asset-card">
+      <mat-card-header>
+        <mat-card-title>{{ asset.name }}</mat-card-title>
+        <mat-card-subtitle>Asset ID: #{{ asset.id }}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">Type</span>
+            <span class="info-value">{{ asset.type }}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="info-label">Status</span>
+            <span [class]="getStatusClass()">
+              {{ asset.status }}
+            </span>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Sensor Reading Card -->
+    <mat-card class="sensor-card" *ngIf="sensorReading">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon>sensors</mat-icon>
+          Latest Sensor Reading
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div class="sensor-grid">
+          <div class="sensor-item">
+            <mat-icon class="sensor-icon temperature-icon">thermostat</mat-icon>
+            <div class="sensor-info">
+              <span class="sensor-label">Temperature</span>
+              <span class="sensor-value"
+                >{{ sensorReading.temperature }}°C</span
+              >
+            </div>
+          </div>
+
+          <div class="sensor-item">
+            <mat-icon class="sensor-icon pressure-icon">speed</mat-icon>
+            <div class="sensor-info">
+              <span class="sensor-label">Pressure</span>
+              <span class="sensor-value">{{ sensorReading.pressure }} PSI</span>
+            </div>
+          </div>
+
+          <div class="sensor-item">
+            <mat-icon class="sensor-icon time-icon">schedule</mat-icon>
+            <div class="sensor-info">
+              <span class="sensor-label">Timestamp</span>
+              <span class="sensor-value">{{
+                sensorReading.timestamp | date : "short"
+              }}</span>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- No Sensor Data Message -->
+    <mat-card class="sensor-card" *ngIf="!sensorReading">
+      <mat-card-content>
+        <div class="no-data">
+          <mat-icon>info</mat-icon>
+          <p>No sensor readings available for this asset yet.</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<!-- Error State -->
+<ng-container *ngIf="(!loading && !asset ) || error">
+    <app-error [message]="errorMessage"></app-error>
+  </ng-container>

@@ -1,0 +1,144 @@
+/* Asset Details */
+.details-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.back-button {
+  margin-bottom: 16px;
+}
+
+.asset-card {
+  margin-bottom: 24px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Status Chips */
+.status-running,
+.status-stopped,
+.status-alarm {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+}
+
+.status-running {
+  background-color: #10b981;
+}
+
+.status-stopped {
+  background-color: #5c5c5cc0;
+}
+
+.status-alarm {
+  background-color: #ef4444;
+}
+
+/* Sensor Card */
+.sensor-card mat-card-header mat-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sensor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.sensor-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+.sensor-icon {
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+}
+
+.temperature-icon {
+  color: #ff6b6b;
+}
+
+.pressure-icon {
+  color: #4dabf7;
+}
+
+.time-icon {
+  color: #9775fa;
+}
+
+.sensor-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sensor-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.sensor-value {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* No Data Message */
+.no-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+  color: #666;
+}
+
+.no-data mat-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  color: #999;
+}

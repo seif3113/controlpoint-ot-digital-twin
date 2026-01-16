@@ -1,0 +1,78 @@
+<div class="asset-list-container">
+  <!-- Loading Spinner -->
+  <app-loading-overlay *ngIf="loading"></app-loading-overlay>
+  <!-- Header Section -->
+  <header>
+    <div class="title-section">
+      <h1>Assets</h1>
+      <p class="subtitle">Manage and monitor your assets</p>
+    </div>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="addData()"
+      class="add-button"
+    >
+      <mat-icon>add</mat-icon>
+      Add New Asset
+    </button>
+  </header>
+
+  <div class="table-container" *ngIf="!error">
+    <table mat-table [dataSource]="assets" class="asset-table">
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">
+          <a [routerLink]="['/assets', element.id]" class="id-link">
+            #{{ element.id }}
+          </a>
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Asset Name</th>
+        <td mat-cell *matCellDef="let element" class="name-cell">
+          {{ element.name }}
+        </td>
+      </ng-container>
+
+      <!-- Type Column -->
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef>Type</th>
+        <td mat-cell *matCellDef="let element">
+          <span class="type-badge">{{ element.type }}</span>
+        </td>
+      </ng-container>
+
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let element">
+          <span [class]="getStatusClass(element.status)">
+            {{ element.status }}
+          </span>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+        class="table-row"
+      ></tr>
+    </table>
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+
+  </div>
+  <!-- Error State -->
+  <ng-container *ngIf="(!loading && !assets ) || error">
+    <app-error [message]="'Something Went Wrong'"></app-error>
+  </ng-container>
+</div>

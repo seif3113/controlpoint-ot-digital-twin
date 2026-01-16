@@ -8,13 +8,13 @@ This is a full-stack application with a **Spring Boot backend** and an **Angular
 
 ```
 my-project/
-├── backend/      ← Spring Boot (Maven)
-├── frontend/     ← Angular
+├── server/      ← Spring Boot (Maven)
+├── web/     ← Angular
 └── README.md
 ```
 
-* `backend/` contains the REST API and business logic.
-* `frontend/` contains the Angular frontend application.
+* `server/` contains the REST API and business logic.
+* `web/` contains the Angular frontend application.
 
 ---
 
@@ -34,7 +34,7 @@ Before running the project, make sure you have installed:
 1. Open a terminal and navigate to the backend folder:
 
 ```bash
-cd backend
+cd server
 ```
 
 2. Install dependencies and build:
@@ -58,7 +58,7 @@ mvn spring-boot:run
 1. Open another terminal and navigate to the frontend folder:
 
 ```bash
-cd frontend
+cd web
 ```
 
 2. Install dependencies:

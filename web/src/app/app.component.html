@@ -1,0 +1,16 @@
+<main>
+  <mat-toolbar color="primary" class="app-header">
+    <div class="header-content">
+      <div class="brand">
+        <a routerLink="/assets">
+          <mat-icon class="brand-icon">settings_input_component</mat-icon>
+          <span class="app-title">{{ appName }}</span>
+        </a>
+        <span class="app-subtitle">Asset Manager</span>
+      </div>
+    </div>
+  </mat-toolbar>
+  <section class="content">
+      <router-outlet />
+  </section>
+</main>

@@ -1,0 +1,22 @@
+
+/* Add Asset Dialog */
+mat-dialog-content {
+  min-width: 400px;
+  padding: 20px 24px !important;
+}
+
+/* Add Asset Form */
+.asset-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.full-width {
+  width: 100%;
+}
+ 
+mat-dialog-actions {
+  padding: 16px 24px;
+  gap: 8px;
+}
